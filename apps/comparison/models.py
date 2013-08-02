@@ -18,4 +18,4 @@ class Comparison:
         i1 = regex.findall(self.before)
         i2 = regex.findall(self.after)
         i3 = imap(lambda a1, b1: str(int(b1) - int(a1)), i1, i2)
-        return regex.sub(lambda x: i3.next(), self.before)
+        return regex.sub(lambda x: i3.next().ljust(len(x.group(0))), self.after)
