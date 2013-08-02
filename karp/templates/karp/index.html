@@ -1,0 +1,53 @@
+{% extends 'karp/base.html' %}
+{% load static %}
+{% load general_filters %}
+
+{% block title %}GNATS Report System{% endblock %}
+
+{% block extra_style %}
+
+{% endblock %}
+{% block extra_css %}
+    <style>
+      tr.developing {color: #b94a48;}
+    </style>
+{% endblock %}
+
+{% block content %}
+  <div class="main">
+    <div class="container">
+        <h1>Tool set list</h1>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                  <th style="width: 200px">Name</th>
+                  <th>Version</th>
+                  <th>Status</th>
+                  <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            {% for tool in tools %}
+                <tr class="{{ tool.status }}">
+                  {% if tool.status == 'ready' %}
+                      <td><a href="{% url tool.url %}">{{ tool.name }}</a></td>
+                  {% else %}
+                      <td>{{ tool.name }}</td>
+                  {% endif %}
+                  <td>{{ tool.version }}</td>
+                  <td>{{ tool.status }}</td>
+                  <td>{{ tool.description }}</td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div> <!-- /container -->
+  </div> <!-- /main -->
+{% endblock %}
+
+{% block extra_script %}
+
+
+{% endblock %}

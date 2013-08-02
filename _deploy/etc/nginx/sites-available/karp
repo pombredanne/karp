@@ -1,0 +1,13 @@
+server {
+  listen 80;
+  server_name tools.jcnrd.us;
+  access_log /var/log/nginx/karp.access.log;
+  error_log /var/log/nginx/karp.error.log;
+  location /static/ {
+      root /home/dev/deployment/karp/;
+    }
+  location / {
+    proxy_pass http://localhost:7010;
+    include /etc/nginx/proxy_params;
+  }
+}

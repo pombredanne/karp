@@ -1,0 +1,6 @@
+django
+django-markdown
+gunicorn
+misaka
+python-dateutil
+requests
