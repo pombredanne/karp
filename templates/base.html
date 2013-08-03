@@ -11,10 +11,17 @@
 
 
     <!-- Styles -->
+    <!--
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    -->
+      <link href="{% static "karp/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" />
+      <link href="{% static "karp/css/bootstrap-responsive.min.css" %}" rel="stylesheet" type="text/css" />
+
+      <link href="{% static "karp/css/font-awesome.min.css" %}" rel="stylesheet">
+
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Arbutus+Slab|Josefin+Slab:400,700|Open+Sans:regular,semibold
       italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
@@ -83,10 +90,10 @@
     {% csrf_token %}
     <!-- put js at the bottom of the file -->
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/1.3.1/lodash.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static "karp/js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "karp/js/lodash.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "karp/js/moment.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "karp/js/bootstrap.min.js" %}"></script>
     {% block extra_script %}
     {% endblock %}
 

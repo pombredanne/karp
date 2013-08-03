@@ -133,6 +133,7 @@ TEMPLATE_DIRS = (
 
 TOOL_SET_APPS = (
     'apps.comparison',
+    'apps.pr_stats',
     'apps.rsi'
 )
 
@@ -153,7 +154,8 @@ INSTALLED_APPS = (
     'apps.statictext',
 ) + TOOL_SET_APPS
 
-
+API_SERVER = 'http://api.jcnrd.us'
+API_SERVER = 'http://localhost:6080'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 #SESSION_COOKIE_AGE = 14400 # 4 hours
@@ -188,4 +190,12 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': 3600,
+        }
 }

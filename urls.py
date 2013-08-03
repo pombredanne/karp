@@ -5,6 +5,7 @@ from karp.views import IndexView
 from apps.comparison import urls as comparison_url
 from apps.statictext import urls as statictext_url
 from apps.rsi import urls as rsi_url
+from apps.pr_stats import urls as pr_stats_url
 
 admin.autodiscover()
 
@@ -14,4 +15,5 @@ urlpatterns = patterns('',
                        url(r'^', include(statictext_url)),
                        url(r'^', include(comparison_url)),
                        url(r'^', include(rsi_url)),
+                       url(r'^', include(pr_stats_url)),
                        )
