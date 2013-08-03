@@ -1,6 +1,7 @@
 // this whole stuff should be rewritten to several classes.
 
-var ajax_url = 'http://localhost:6080/pr_stats.json';
+//var ajax_url = 'http://localhost:6080/pr_stats.json';
+var ajax_url = 'http://api.jcnrd.us/pr_stats.json';
 
 function hide_instruction(hide) {
     if (hide) {
