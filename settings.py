@@ -155,7 +155,7 @@ INSTALLED_APPS = (
 ) + TOOL_SET_APPS
 
 API_SERVER = 'http://api.jcnrd.us'
-API_SERVER = 'http://localhost:6080'
+#API_SERVER = 'http://localhost:6080'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 #SESSION_COOKIE_AGE = 14400 # 4 hours
