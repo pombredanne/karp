@@ -12,13 +12,21 @@ NPM=/usr/local/bin/npm
 PIP=/usr/bin/pip
 SUDO=/usr/bin/sudo
 VENV=~/.virtualenvs/$(PROJECT)/bin/activate
-ENTER_VENV=cd $(PATH); source $(VENV); pip install -r requirements.txt
+ENTER_VENV=cd $(PATH); source $(VENV); git pull; pip install -r requirements.txt; python manage.py collectstatic --noinput
 
 remote_deploy:
 	@$(SSH) -t $(SERVER) "echo Deploy $(PROJECT) to the $(SERVER) server.; $(ENTER_VENV);  git pull; make deploy;"
 
 dependency:
 	@$(ECHO) "\nInstall project dependencies..."
+	@pip install -r requirements.txt
+	@echo ${DONE}
+	
+collect:
+	@echo "\n\nCollecting static files..."
+	@python manage.py collectstatic --noinput
+	@echo ${DONE}
+
 
 configuration:
 	@$(ECHO) "\nUpdate configuration..."
@@ -35,5 +43,5 @@ nginx:
 	@$(ECHO) "\nRestart nginx..."
 	@$(SUDO) /etc/init.d/nginx restart
 
-deploy: dependency configuration supervisor nginx
+deploy: configuration supervisor nginx
 	@$(ECHO) $(DONE)
