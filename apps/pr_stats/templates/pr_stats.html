@@ -21,7 +21,8 @@
                                 <ul class="dropdown-menu">
                                     {% for item in group %}
                                         <li><a href="#{{item.name}}" data-name="{{ item.name }}" data-expr=
-                                                "{{ item.expr }}" class="query">{{ item.name }}</a></li>
+                                                "{{ item.expr }}" data-url="{{ item.pr_url }}" class="query"
+                                                >{{ item.name }}</a></li>
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
@@ -48,7 +49,8 @@
                             <ul class="inline">
                               {% for item in group %}
                                   <li><a href="#{{item.name}}" data-name="{{ item.name }}" data-expr=
-                                          "{{ item.expr }}" class="query">{{ item.name }}</a></li> |
+                                          "{{ item.expr }}" data-url="{{ item.pr_url }}" class="query"
+                                          >{{ item.name }}</a></li> |
                               {% endfor %}
                             </ul>
                             <hr/>
@@ -56,7 +58,9 @@
                     </div>
                     <div class="chart-container hide">
                         <h3 id="chart-name"></h3>
-                        <blockquote id="chart-expr"></blockquote>
+                        <p>Expression: </p>
+                        <textarea id="chart-expr" readonly="readonly" style="width:100%; font-size: 10px;
+                        line-height: 1.4"></textarea>
                         <div id="loading"><img src="{% static "pr_stats/img/loading1.gif" %}" /></div>
                         <div id="charts"></div>
                         <hr/>

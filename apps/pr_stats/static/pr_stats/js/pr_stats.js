@@ -25,15 +25,15 @@ function draw_chart_title(expr) {
         $('#query-category').val('');
     });
 }
-function draw_chart(expr, name) {
+function draw_chart(expr, name, url) {
     hide_instruction(true);
     if (name) {
-        $('#chart-name').text(name);
+        $('#chart-name').html('<a title="View GNATS query results" href="' + url + '" target="_blank">' + name + '</a>');
     } else {
         draw_chart_title(expr);
     }
 
-    $('#chart-expr').text(expr);
+    $('#chart-expr').val(expr);
     $('#charts').html('');
     $.getJSON('?expr=' + encodeURIComponent(expr), function(data) {
         var subtitle = 'Year ' + moment().year();
@@ -60,7 +60,7 @@ function setup_indicator() {
 function setup_sidenav() {
     $('.query').click(function() {
         var $this = $(this);
-        draw_chart($this.data('expr'), $this.data('name'));
+        draw_chart($this.data('expr'), $this.data('name'), $this.data('url'));
     });
 
     $('.instruction').click(function() {

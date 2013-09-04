@@ -64,6 +64,7 @@ class PRStats:
 
             for item in results:
                 item['quoted_expr'] = urllib.quote(item['expr'])
+                item['pr_url'] = expr_to_url(item['expr'], False)
                 data[item['category']].append(item)
 
             cache.set(ckey(PR_STATS_URL), data, 10)
@@ -107,5 +108,5 @@ class PRStat:
             cache.set(ckey(expr), data)
         return data
 
-    def save(self, name, category, url):
-        pass
+    def get_url(self, expr):
+        return expr_to_url(expr, False)
